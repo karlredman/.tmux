@@ -1,6 +1,10 @@
 # this is a fork. The original is [here]()
 * more to come
 
+## forked work so far:
+* added custom colors for right side bar
+* added load, memory usage, and composite cpu temperature to right side bar
+
 
 .tmux
 =====
