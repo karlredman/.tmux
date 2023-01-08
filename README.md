@@ -14,9 +14,14 @@ Requirements:
   - awk, perl and sed
   - outside of tmux, `$TERM` must be set to `xterm-256color`
 
-To install, run the following from your terminal: (you may want to backup your
-existing `~/.tmux.conf` first)
+⚠️ Before installing, you may want to backup your existing configuration.
 
+You can install Oh my tmux! at any of the following locations:
+- `~/.tmux.conf` and `~/.tmux.conf.local`
+- `$XDG_CONFIG_HOME/tmux/tmux.conf` and `$XDG_CONFIG_HOME/tmux/tmux.conf.local`
+- `~/.config/tmux/tmux.conf` and `~/.config/tmux/tmux.conf.local`
+
+Installing in `~`:
 ```
 $ cd
 $ git clone https://github.com/gpakosz/.tmux.git
@@ -24,19 +29,27 @@ $ ln -s -f .tmux/.tmux.conf
 $ cp .tmux/.tmux.conf.local .
 ```
 
-💡 You can clone the repository anywhere you want, provided you create the
-proper `~/.tmux.conf` symlink and you copy the `.tmux.conf.local` sample file in
-your home directory:
-
+Installing in `$XDG_CONFIG_HOME/tmux`:
 ```
-$ git clone https://github.com/gpakosz/.tmux.git /path/to/oh-my-tmux
-$ ln -s -f /path/to/oh-my-tmux/.tmux.conf ~/.tmux.conf
-$ cp /path/to/oh-my-tmux/.tmux.conf.local ~/.tmux.conf.local
+$ git clone https://github.com/gpakosz/.tmux.git "/path/to/oh-my-tmux"
+$ mkdir -p "$XDG_CONFIG_HOME/tmux"
+$ ln -s "/path/to/oh-my-tmux/.tmux.conf" "$XDG_CONFIG_HOME/tmux/tmux.conf"
+$ cp "/path/to/oh-my-tmux/.tmux.conf.local" "$XDG_CONFIG_HOME/tmux/tmux.conf.local"
 ```
 
-Then proceed to [customize] your `~/.tmux.conf.local` copy.
+Installing in `~/.config/tmux`:
+```
+$ git clone https://github.com/gpakosz/.tmux.git "/path/to/oh-my-tmux"
+$ mkdir -p "~/.config/tmux"
+$ ln -s "/path/to/oh-my-tmux/.tmux.conf" "~/.config/tmux/tmux.conf"
+$ cp "/path/to/oh-my-tmux/.tmux.conf.local" "~/.config/tmux/tmux.conf.local"
+```
 
-[customize]: #configuration
+Then proceed to [customize] your `.tmux.conf.local` or `tmux.conf.local` copy.
+
+❗️ You should never alter the main `.tmux.conf` / `tmux.conf` file. If you do,
+you're on your own. Instead, every customization happens in your
+`.tmux.conf.local` or `tmux.conf.local` copy.
 
 If you're a Vim user, setting the `$EDITOR` environment variable to `vim` will
 enable and further customize the vi-style key bindings (see tmux manual).
@@ -44,6 +57,7 @@ enable and further customize the vi-style key bindings (see tmux manual).
 If you're new to tmux, I recommend you read [tmux 2: Productive Mouse-Free
 Development][bhtmux2] by [@bphogan].
 
+[customize]: #configuration
 [bhtmux2]: https://pragprog.com/book/bhtmux2/tmux-2
 [@bphogan]: https://twitter.com/bphogan
 
